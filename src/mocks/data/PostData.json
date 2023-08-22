@@ -1,0 +1,83 @@
+[
+    {
+        "postIdx" : 1,
+        "category" : 1,
+        "imagePath" : "/crossfit_img_001.jpg",
+        "imageName" : "크로스핏",
+        "description" : "크로스핏했습니다",
+        "userIdx" : 1,
+        "createTime" : "2023-08-22 13:56:00"
+    },
+    {
+        "postIdx" : 2,
+        "category" : 3,
+        "imagePath" : "/health_img_001.jpg",
+        "imageName" : "헬스",
+        "description" : "헬스했습니다",
+        "userIdx" : 1,
+        "createTime" : "2023-08-22 13:56:01"
+    },
+    {
+        "postIdx" : 3,
+        "category" : 4,
+        "imagePath" : "/jogging_img_001.jpg",
+        "imageName" : "조깅1",
+        "description" : "조깅1했습니다",
+        "userIdx" : 1,
+        "createTime" : "2023-08-22 13:56:02"
+    },
+    {
+        "postIdx" : 4,
+        "category" : 5,
+        "imagePath" : "/jogging_img_002.jpg",
+        "imageName" : "조깅2",
+        "description" : "조깅2했습니다",
+        "userIdx" : 1,
+        "createTime" : "2023-08-22 13:56:03"
+    },
+    {
+        "postIdx" : 5,
+        "category" : 2,
+        "imagePath" : "/jogging_img_003.jpg",
+        "imageName" : "조깅3",
+        "description" : "조깅3했습니다",
+        "userIdx" : 1,
+        "createTime" : "2023-08-22 13:56:04"
+    },
+    {
+        "postIdx" : 6,
+        "category" : 2,
+        "imagePath" : "/soccer_img_001.jpg",
+        "imageName" : "축구",
+        "description" : "축구했습니다",
+        "userIdx" : 1,
+        "createTime" : "2023-08-22 13:56:05"
+    },
+    {
+        "postIdx" : 7,
+        "category" : 1,
+        "imagePath" : "/swimmers_img_001.jpg",
+        "imageName" : "수영",
+        "description" : "수영했습니다",
+        "userIdx" : 1,
+        "createTime" : "2023-08-22 13:56:06"
+    },
+    {
+        "postIdx" : 8,
+        "category" : 5,
+        "imagePath" : "/tracking_img_001.jpg",
+        "imageName" : "트래킹",
+        "description" : "트래킹했습니다",
+        "userIdx" : 1,
+        "createTime" : "2023-08-22 13:56:07"
+    },
+    {
+        "postIdx" : 9,
+        "category" : 3,
+        "imagePath" : "/yoga_img_001.jpg",
+        "imageName" : "요가",
+        "description" : "요가했습니다",
+        "userIdx" : 1,
+        "createTime" : "2023-08-22 13:56:08"
+    }
+]

@@ -1,6 +1,18 @@
 [
     {
-        "id": "test",
-        "password" : "test1234"
+        "userIdx" : 1,
+        "userId": "test1",
+        "password" : "test1234",
+        "userName" : "회원1",
+        "accessToken" : "test1",
+        "isAdmin" : false
+    },
+    {
+        "userIdx" : 2,
+        "userId": "admin",
+        "password" : "admin1234",
+        "userName" : "매니저1",
+        "accessToken" : "test2",
+        "isAdmin" : true
     }
 ]

@@ -1,6 +1,6 @@
-import { atom, useRecoilValue, useSetRecoilState, useResetRecoilState } from "recoil";
+import { atom, useRecoilValue } from "recoil";
 import { recoilPersist } from "recoil-persist";
-import { userType } from "@/type/UserType";
+import userType from "@/type/UserType";
 
 const { persistAtom } = recoilPersist({
     key: 'sessionStorage',
@@ -19,12 +19,6 @@ const userAtom = atom<userType>({
     effects_UNSTABLE: [persistAtom],
 });
 
-//값 세팅
-function SetUser(params : userType){useSetRecoilState(userAtom)(params);}
-
-//값 리셋
-function ResetUser(){useResetRecoilState(userAtom);}
-
 //UserId get
 function GetUserIdx():number {return useRecoilValue(userAtom).userIdx;}
 
@@ -38,14 +32,8 @@ function GetUserId():string {return useRecoilValue(userAtom).userId;}
 function GetUserName():string {return useRecoilValue(userAtom).userName;}
 
 //accessToken Get
-function SetAccessToken(accessToken: string) {
-    const user = {...useRecoilValue(userAtom), accessToken};
-    SetUser(user);
-}
-
-//accessToken Get
 function GetAccessToken():string {return useRecoilValue(userAtom).accessToken;}
 
 function GetIsAdmin():boolean {return useRecoilValue(userAtom).isAdmin;}
 
-export { userAtom, SetUser, ResetUser, GetUserIdx, CheckUserIdx, GetUserId, GetUserName, SetAccessToken, GetAccessToken, GetIsAdmin };
+export { userAtom, GetUserIdx, CheckUserIdx, GetUserId, GetUserName, GetAccessToken, GetIsAdmin };

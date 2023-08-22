@@ -1,9 +1,10 @@
-import { HttpJson } from "./http";
+import userType from "@/type/UserType";
+import { HttpJson } from "./Http";
 
 const api = HttpJson;
 
-const getList = async (success: ({data} : {data: object}) => void, fail: (error: unknown) => void) => {
-    await api.get(`/user`).then(success).catch(fail);
+const RequestLogin = async (param: object, success: ({data} : {data: userType}) => void, fail: (error: unknown) => void) => {
+    await api.post(`/user`, JSON.stringify(param)).then(success).catch(fail);
 }
 
-export {getList};
+export { RequestLogin };

@@ -31,7 +31,7 @@ export default function AuthRoute({ authentication } : AuthRouteProps) {
 
 //redirect가 필요한 경우 어디로 보내야하는지 계산해주는 함수
 function redirect(needLogin: boolean, authText: string): string {
-    let result = needLogin ? "/login" : "/main";
+    let result = needLogin ? "/login" : "/";
     switch(authText){
         case "Admin" :
             result = "/adm" + result;
