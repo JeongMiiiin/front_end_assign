@@ -14,7 +14,7 @@ type postType = {
 
 export type postListType = {
     dataList : postType[],
-    totalCnt : number,
+    hasMore : boolean,
 }
 
 export default postType;

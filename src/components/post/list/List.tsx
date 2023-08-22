@@ -1,64 +1,73 @@
+import InfiniteScroll from 'react-infinite-scroll-component';
 import postType from '@/type/PostType';
 import { getPostList } from '@/api/Post';
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import PostFilter from './item/Filter';
 import PostListItem from './item/ListItem';
 import componentStyle from '@/resources/css/module/PostList.module.css';
+import { GetUserIdx } from '@/atom/UserAtom';
+import PostInsert from '../insert/Insert';
+import { ContentsPopup } from '@/utils/Popup';
 
 const PostList = () => {
-    const [TotalCnt, setTotalCnt] = useState(0);
-
-    const ListRef = useRef<HTMLUListElement>(null);
-    const [ListContents, setListContents] = useState<postType[]>([]);
-
-    const param = {
-        page : 0,
-        size : 3,
-    }
-
+    const userIdx = GetUserIdx();
+    const [listContents, setListContents] = useState<postType[]>([]);
+    const [dateList, setDateList] = useState<string[]>([]);
+    const [params, setParams] = useState({userIdx : userIdx, page : 0, size : 3, category : 0, upload : true, comment : true});
+    const [filterStatus, setFilterStatus] = useState(false);
+    const [hasMore, setHasMore] = useState(false);
     const getList = async () => {
-        await getPostList(param, ({data}) => {
-            setListContents(data.dataList);
-            setTotalCnt(() => data.totalCnt);
-            console.log(TotalCnt);
+        await getPostList(params, ({data}) => {
+            setListContents([...data.dataList]);
+            setHasMore(data.hasMore);
+            setParams((params) => ({...params, page : params.page + 1}));
         }, (error) => console.log(error));
     };
 
-    const updateList = async () => {   
-        await getPostList(param, ({data}) => {
-            console.log(data.dataList);
-            const dataList = [...ListContents];
-            data.dataList.map((item) => dataList.push(item));
-            setListContents(dataList);
-            console.log(ListContents);
+    //스크롤 시 컨텐츠 추가해주는 함수
+    const moreList = async () => {
+        await getPostList(params, ({data}) => {
+            setListContents(listContents => [...listContents, ...data.dataList]);
+            setHasMore(data.hasMore);
+            setParams((params) => ({...params, page : params.page + 1}));
         }, (error) => console.log(error));
-    }
+    };
 
-    const infiniteScroll = useCallback(() => {
-        const { scrollTop, clientHeight, scrollHeight } = ListRef.current!;
-        const lastContentHeight = ListRef.current!.lastElementChild!.clientHeight;
-        if(scrollHeight - clientHeight - lastContentHeight <= scrollTop){ //스크롤 마지막 전에 도달할 때
-            console.log(TotalCnt);
-            if(TotalCnt > param.page * param.size){
-                param.page += 1;
-                updateList();
-            }
-        }
-    }, []);
+    //필터 변경 함수
+    const changeFilter = (categoryStatus: number, uploadStatus: boolean, commentStatus: boolean) => {
+        setParams(() => ({userIdx : userIdx, page : 0, size : 3, category : categoryStatus, upload : uploadStatus, comment : commentStatus}));
+        setFilterStatus(filterStatus => !filterStatus);
+    }
 
     useEffect(() => {
         void getList();
-        //스크롤 이벤트 등록
-        ListRef.current?.addEventListener('scroll', infiniteScroll, true);
-    }, []);
+    }, [filterStatus]);
+
+    const [insertPopupStatus, setInsertPopupStatus] = useState(false);
+    const changeInsertPopupFlag = (flag: boolean) => {
+        setInsertPopupStatus(() => flag);
+    };
+    const insertPopupInfo = {
+        PopupStatus : insertPopupStatus,
+        zIndex : 9999,
+        maxWidth : 500,
+        ClosePopupProp : () => setInsertPopupStatus(() => false),
+        PopupTitle : "운동기록 업로드",
+        PopupContents : <PostInsert closePopup={changeInsertPopupFlag} />,
+    }
 
     return (
         <div>
-            사진리스트
-            <PostFilter />
-            <ul className={`col-12 col-center mw-500 ${componentStyle.post_list_wrap}`} ref={ListRef}>
-                {ListContents.length > 0 ? ListContents.map((item, index) => <PostListItem key={index} item={item} /> ) : <li>데이터가 없습니다</li>}
-            </ul>
+            <PostFilter changeFilter={changeFilter} />
+            <InfiniteScroll dataLength={listContents.length} next={moreList} hasMore={hasMore} loader={<p>Loading...</p>} scrollableTarget="postList">
+                <ul id="postList" className={`col-12 col-center mw-500 ${componentStyle.post_list_wrap}`}>
+                    {listContents.length > 0 ? listContents.map((item, index) => <PostListItem key={index} item={item} /> ) : <li>데이터가 없습니다</li>}
+                </ul>
+            </InfiniteScroll>
+            <div>
+                <button type="button" onClick={() => setInsertPopupStatus(() => true)}>추가하기</button>
+            </div>
+            <ContentsPopup PopupInfo={insertPopupInfo}/>
         </div>
     )
 }

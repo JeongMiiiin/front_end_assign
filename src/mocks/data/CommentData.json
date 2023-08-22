@@ -1,0 +1,65 @@
+[
+    {   
+        "commentIdx" : 1,
+        "postIdx" : 1,
+        "description" : "크로스핏댓글",
+        "userIdx" : 1,
+        "createTime" : "2023-08-22 13:56:00"
+    },
+    {   
+        "commentIdx" : 2,
+        "postIdx" : 1,
+        "description" : "헬스했습니다",
+        "userIdx" : 1,
+        "createTime" : "2023-08-22 13:56:01"
+    },
+    {
+        "commentIdx" : 3,
+        "postIdx" : 2,
+        "description" : "헬스했습니다",
+        "userIdx" : 1,
+        "createTime" : "2023-08-22 13:56:02"
+    },
+    {
+        "commentIdx" : 4,
+        "postIdx" : 3,
+        "description" : "헬스했습니다",
+        "userIdx" : 1,
+        "createTime" : "2023-08-22 13:56:03"
+    },
+    {
+        "commentIdx" : 5,
+        "postIdx" : 1,
+        "description" : "헬스했습니다",
+        "userIdx" : 1,
+        "createTime" : "2023-08-22 13:56:04"
+    },
+    {
+        "commentIdx" : 6,
+        "postIdx" : 3,
+        "description" : "헬스했습니다",
+        "userIdx" : 1,
+        "createTime" : "2023-08-22 13:56:05"
+    },
+    {
+        "commentIdx" : 7,
+        "postIdx" : 1,
+        "description" : "헬스했습니다",
+        "userIdx" : 1,
+        "createTime" : "2023-08-22 13:56:07"
+    },
+    {
+        "commentIdx" : 8,
+        "postIdx" : 1,
+        "description" : "헬스했습니다",
+        "userIdx" : 1,
+        "createTime" : "2023-08-22 13:56:08"
+    },
+    {
+        "commentIdx" : 9,
+        "postIdx" : 1,
+        "description" : "헬스했습니다",
+        "userIdx" : 1,
+        "createTime" : "2023-08-22 13:56:09"
+    }
+]

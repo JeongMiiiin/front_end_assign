@@ -1,6 +1,6 @@
 import Header from "@/components/inc/Header";
 import PostList from "@/components/post/list/List";
-import pageStyle from '@/resources/css/page/AppMain.Module.css';
+import PageStyle from '@/resources/css/page/AppMain.module.css';
 
 const AppMain = () => {
     return (

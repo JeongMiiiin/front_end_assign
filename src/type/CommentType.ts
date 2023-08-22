@@ -1,4 +1,6 @@
 type commentType = {
+    commentIdx : number,
+    postIdx : number,
     description : string,
     userIdx : number,
     userName : string,
