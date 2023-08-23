@@ -12,7 +12,7 @@ import { ContentsPopup } from '@/utils/Popup';
 const PostList = () => {
     const userIdx = GetUserIdx();
     const [listContents, setListContents] = useState<postType[]>([]);
-    const [dateList, setDateList] = useState<string[]>([]);
+    const [dateList, setDateList] = useState<string[][]>([]);
     const [params, setParams] = useState({userIdx : userIdx, page : 0, size : 3, category : 0, upload : true, comment : true});
     const [filterStatus, setFilterStatus] = useState(false);
     const [hasMore, setHasMore] = useState(false);
@@ -39,10 +39,12 @@ const PostList = () => {
         setFilterStatus(filterStatus => !filterStatus);
     }
 
+    //필터에 따른 검색
     useEffect(() => {
         void getList();
     }, [filterStatus]);
 
+    //등록 팝업을 위한 값
     const [insertPopupStatus, setInsertPopupStatus] = useState(false);
     const changeInsertPopupFlag = (flag: boolean) => {
         setInsertPopupStatus(() => flag);
@@ -55,6 +57,10 @@ const PostList = () => {
         PopupTitle : "운동기록 업로드",
         PopupContents : <PostInsert closePopup={changeInsertPopupFlag} />,
     }
+
+    useEffect(() => {
+        
+    }, [listContents]);
 
     return (
         <div>
