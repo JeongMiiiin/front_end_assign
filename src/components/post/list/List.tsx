@@ -4,23 +4,25 @@ import { getPostList } from '@/api/Post';
 import { useState, useEffect } from 'react';
 import PostFilter from './item/Filter';
 import PostListItem from './item/ListItem';
-import componentStyle from '@/resources/css/module/PostList.module.css';
-import { GetUserIdx } from '@/atom/UserAtom';
+import ComponentStyle from '@/resources/css/module/PostList.module.css';
+import { GetIsAdmin, GetUserIdx } from '@/atom/UserAtom';
 import PostInsert from '../insert/Insert';
 import { ContentsPopup } from '@/utils/Popup';
 
 const PostList = () => {
     const userIdx = GetUserIdx();
+    const isAdmin = GetIsAdmin();
     const [listContents, setListContents] = useState<postType[]>([]);
-    const [dateList, setDateList] = useState<string[][]>([]);
     const [params, setParams] = useState({userIdx : userIdx, page : 0, size : 3, category : 0, upload : true, comment : true});
     const [filterStatus, setFilterStatus] = useState(false);
     const [hasMore, setHasMore] = useState(false);
+    const [insertPossible, setInsertPossible] = useState(true);
     const getList = async () => {
         await getPostList(params, ({data}) => {
             setListContents([...data.dataList]);
             setHasMore(data.hasMore);
             setParams((params) => ({...params, page : params.page + 1}));
+            if(!isAdmin && data.insertMax && insertPossible) setInsertPossible(() => false);
         }, (error) => console.log(error));
     };
 
@@ -58,21 +60,21 @@ const PostList = () => {
         PopupContents : <PostInsert closePopup={changeInsertPopupFlag} />,
     }
 
-    useEffect(() => {
-        
-    }, [listContents]);
-
     return (
-        <div>
+        <div className="col-12">
             <PostFilter changeFilter={changeFilter} />
-            <InfiniteScroll dataLength={listContents.length} next={moreList} hasMore={hasMore} loader={<p>Loading...</p>} scrollableTarget="postList">
-                <ul id="postList" className={`col-12 col-center mw-500 ${componentStyle.post_list_wrap}`}>
-                    {listContents.length > 0 ? listContents.map((item, index) => <PostListItem key={index} item={item} /> ) : <li>데이터가 없습니다</li>}
-                </ul>
-            </InfiniteScroll>
-            <div>
-                <button type="button" onClick={() => setInsertPopupStatus(() => true)}>추가하기</button>
+            <div className="col-12">
+                <InfiniteScroll dataLength={listContents.length} next={moreList} hasMore={hasMore} loader={<p></p>} scrollableTarget="postList">
+                    <ul id="postList" className={`${ComponentStyle.post_list_wrap}`}>
+                        {listContents.length > 0 ? listContents.map((item, index) => <PostListItem key={index} item={item} /> ) : <li>데이터가 없습니다</li>}
+                    </ul>
+                </InfiniteScroll>
             </div>
+            {insertPossible ?
+                <div className="col-12 mt20 mt-md-30">
+                    <button type="button" onClick={() => setInsertPopupStatus(() => true)} className='btn_style_0 fr'>추가하기</button>
+                </div>
+            : null}
             <ContentsPopup PopupInfo={insertPopupInfo}/>
         </div>
     )

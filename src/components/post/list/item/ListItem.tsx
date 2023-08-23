@@ -17,7 +17,7 @@ const PostListItem = ({item} : {item: postType}) => {
         maxWidth : 500,
         ClosePopupProp : () => setViewPopupStatus(() => false),
         PopupTitle : "운동기록 보기",
-        PopupContents : <PostView closePopup={changeViewPopupFlag} />,
+        PopupContents : <PostView closePopup={changeViewPopupFlag} postIdx={item.postIdx} targetDate={item.createTime.split(" ")[0]} />,
     }
 
 

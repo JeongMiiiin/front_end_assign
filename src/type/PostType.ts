@@ -8,13 +8,20 @@ type postType = {
     description : string,
     userIdx : number,
     userName : string,
-    createTime : Date,
+    createTime : string,
     commentList : commentType[],
 }
 
 export type postListType = {
     dataList : postType[],
     hasMore : boolean,
+    insertMax : boolean,
+}
+
+export type postViewType = {
+    prevDate : string,
+    dataList : postType[],
+    nextDate : string,
 }
 
 export default postType;

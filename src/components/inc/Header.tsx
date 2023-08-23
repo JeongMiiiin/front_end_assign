@@ -1,6 +1,7 @@
 import { userAtom } from "@/atom/UserAtom";
 import { useRecoilValue, useResetRecoilState } from "recoil";
 import { useNavigate } from 'react-router-dom';
+import ComponentStyle from '@/resources/css/module/Header.module.css';
 
 const Header = () => {
     const navigate = useNavigate();
@@ -15,10 +16,10 @@ const Header = () => {
 
 
     return (
-        <div>
+        <header className={`col-12 mb20 mb-md-30 ${ComponentStyle.header_wrap}`}>
             {userName}님 안녕하세요
-            <button type="button" onClick={logout}>로그아웃</button>
-        </div>
+            <button type="button" onClick={logout} className="btn_style_0">로그아웃</button>
+        </header>
     )
 }
 

@@ -1,0 +1,35 @@
+.point0{ color: #0363ff !important;}
+.bg_point0{ background-color: #0363ff !important;}
+
+/* btn_style_0 */
+.btn_style_0{display: inline-block; box-sizing: border-box; overflow: hidden; border: 1px solid #17181d; cursor: pointer; appearance: none; outline: none; padding: 6px 14px; border-radius: 5px; text-align: center; font-size: 17px; font-size: 1.7rem; line-height: 23px; line-height: 2.3rem; font-weight: 500; letter-spacing: -0.02em; color: #17181d; background-color: transparent;}
+.btn_style_0.border_none{border: 0px none; padding: 7px 15px;}
+.btn_style_0[class*=bg_]{border: 0px none; padding: 7px 15px; color: #fff;}
+.btn_style_0.bg_black{background-color: #000;}
+.btn_style_0.bg_a2a2a2{background-color: #A2A2A2;}
+
+/* input_style_0 */
+.input_style_0{width: 100%; appearance: none; border: 2px solid #999999; overflow: hidden; border-radius: 8px; padding: 7px 10px; background-color: #fff; font-size: 17px; font-size: 1.7rem; line-height: 23px; line-height: 2.3rem; font-weight: 400; letter-spacing: -0.02em; color: #17181d; outline: none;}
+.input_style_0:-moz-placeholder {color: #d9d9d9;}
+.input_style_0:-ms-input-placeholder {color: #d9d9d9;}
+.input_style_0::-moz-placeholder {color: #d9d9d9;}
+.input_style_0::-webkit-input-placeholder {color: #d9d9d9;}
+
+/* select_style_0 */
+.select_style_0{width: 100%; border-radius: 4px; padding: 5px; font-size: 15px; font-size: 1.5rem; line-height: 21px; line-height: 2.1rem; font-weight: 400; letter-spacing: -0.02em; color: #17181d;}
+
+/* textarea_style_0 */
+.textarea_style_0{width: 100%; resize: none; appearance: none; min-height: 150px; border: 2px solid #999999; border-radius: 8px; padding: 7px 10px; background-color: #fff; font-size: 17px; font-size: 1.7rem; line-height: 23px; line-height: 2.3rem; font-weight: 400; letter-spacing: -0.02em; color: #17181d;}
+
+/* form_style_0 */
+.form_style_0_con .form_style_0{margin-bottom: 17px;}
+.form_style_0_con .form_style_0:last-child{margin-bottom: 0;}
+.form_style_0_con .form_style_0 .label_box{margin-bottom: 13px;}
+.form_style_0_con .form_style_0 .label_box > *{font-size: 17px; font-size: 1.7rem; line-height: 23px; line-height: 2.3rem; font-weight: 400; letter-spacing: -0.02em;}
+
+@media all and (min-width: 992px){
+    /* form_style_0 */
+    .form_style_0_con .form_style_0 .label_box{width: 100px; margin-top: 7px; margin-bottom: 0;}
+    .form_style_0_con .form_style_0 .input_box{width: calc(100% - 100px);}
+    .form_style_0_con.type_view .form_style_0 .label_box{margin-top: 0;}
+}

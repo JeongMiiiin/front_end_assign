@@ -41,27 +41,27 @@ const AppLogin = () => {
 
     return (
         <div className={`col-12 ${PageStyle.login_wrap}`}>
-            <form className="col-12" onSubmit={(e) => void formSubmit(e)}>
-                <div className="col-12">
-                    <div className="col-12">
-                        <div className="col-12 col-md-0 labe_box">
+            <form className={`col-12 ${PageStyle.login_con}`} onSubmit={(e) => void formSubmit(e)}>
+                <div className="col-12 mb20 mb-md-30 form_style_0_con">
+                    <div className="col-12 form_style_0">
+                        <div className="col-12 col-md-0 label_box">
                             <label htmlFor="id">아이디</label>
                         </div>
                         <div className="col-12 col-md-0 input_box">
-                            <input type="text" id="id" ref={idInput} />
+                            <input type="text" id="id" ref={idInput} className="input_style_0" />
                         </div>
                     </div>
-                    <div className="col-12">
-                        <div className="col-12 col-md-0 labe_box">
-                            <label htmlFor="">비밀번호</label>
+                    <div className="col-12 form_style_0">
+                        <div className="col-12 col-md-0 label_box">
+                            <label htmlFor="password">비밀번호</label>
                         </div>
                         <div className="col-12 col-md-0 input_box">
-                            <input type="password" id="password" ref={passwordInput} />
+                            <input type="password" id="password" ref={passwordInput} className="input_style_0"/>
                         </div>
                     </div>
                 </div>
-                <div className="col-12 btn_style_0_con">
-                    <button type="submit">로그인</button>
+                <div className="col-12">
+                    <button type="submit" className="col-12 btn_style_0 bg_point0">로그인</button>
                 </div>
             </form>
         </div>

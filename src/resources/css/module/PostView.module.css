@@ -1,0 +1,9 @@
+.post_view_header_con{display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; font-size: 17px; font-size: 1.7rem; line-height: 23px; line-height: 2.3rem; font-weight: 400; letter-spacing: -0.02em; color: #17181d;}
+
+.post_view_arrow_btn_con > button{font-size: 0; line-height: 0; background-color: #fff; width: 20px; height: 30px; outline: none; border: 1px solid #999999; background-size: 12px 20px; background-position: center center; background-repeat: no-repeat; background-image: url("../../img/single_left_arrow.png");}
+.post_view_arrow_btn_con > button.next{background-image: url("../../img/single_right_arrow.png")}
+
+.comment_list_wrap{font-size: 0; line-height: 0;}
+.comment_list_wrap > li{font-size: 15px; font-size: 1.5rem; line-height: 21px; line-height: 2.1rem; font-weight: 300; letter-spacing: -0.02em; color: #17181d; margin-bottom: 7px;}
+.comment_list_wrap > li:last-child{margin-bottom: 0;}
+.comment_input_text{font-size: 15px; font-size: 1.5rem; line-height: 21px; line-height: 2.1rem; font-weight: 300; letter-spacing: -0.02em; color: #17181d;}

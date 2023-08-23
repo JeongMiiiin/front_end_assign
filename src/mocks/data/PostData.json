@@ -6,7 +6,7 @@
         "imageName" : "크로스핏",
         "description" : "크로스핏했습니다",
         "userIdx" : 1,
-        "createTime" : "2023-08-22 13:56:00",
+        "createTime" : "2023-05-20 13:56:00",
         "commentList" : [],
         "commentTime" : ""
     },
@@ -17,7 +17,7 @@
         "imageName" : "헬스",
         "description" : "헬스했습니다",
         "userIdx" : 1,
-        "createTime" : "2023-08-22 13:56:01",
+        "createTime" : "2023-05-20 13:56:01",
         "commentList" : [],
         "commentTime" : ""
     },
@@ -28,7 +28,7 @@
         "imageName" : "조깅1",
         "description" : "조깅1했습니다",
         "userIdx" : 1,
-        "createTime" : "2023-08-22 13:56:02",
+        "createTime" : "2023-05-23 13:56:02",
         "commentList" : [],
         "commentTime" : ""
     },
@@ -39,7 +39,7 @@
         "imageName" : "조깅2",
         "description" : "조깅2했습니다",
         "userIdx" : 1,
-        "createTime" : "2023-08-22 13:56:03",
+        "createTime" : "2023-05-23 13:56:03",
         "commentList" : [],
         "commentTime" : ""
     },
@@ -50,7 +50,7 @@
         "imageName" : "조깅3",
         "description" : "조깅3했습니다",
         "userIdx" : 1,
-        "createTime" : "2023-08-22 13:56:04",
+        "createTime" : "2023-05-23 13:56:04",
         "commentList" : [],
         "commentTime" : ""
     },
@@ -61,7 +61,7 @@
         "imageName" : "축구",
         "description" : "축구했습니다",
         "userIdx" : 1,
-        "createTime" : "2023-08-22 13:56:05",
+        "createTime" : "2023-05-23 13:56:05",
         "commentList" : [],
         "commentTime" : ""
     },
@@ -72,29 +72,7 @@
         "imageName" : "수영",
         "description" : "수영했습니다",
         "userIdx" : 1,
-        "createTime" : "2023-08-22 13:56:06",
-        "commentList" : [],
-        "commentTime" : ""
-    },
-    {
-        "postIdx" : 8,
-        "category" : 5,
-        "imagePath" : "/tracking_img_001.jpg",
-        "imageName" : "트래킹",
-        "description" : "트래킹했습니다",
-        "userIdx" : 1,
-        "createTime" : "2023-08-22 13:56:07",
-        "commentList" : [],
-        "commentTime" : ""
-    },
-    {
-        "postIdx" : 9,
-        "category" : 3,
-        "imagePath" : "/yoga_img_001.jpg",
-        "imageName" : "요가",
-        "description" : "요가했습니다",
-        "userIdx" : 1,
-        "createTime" : "2023-08-22 13:56:08",
+        "createTime" : "2023-05-23 13:56:06",
         "commentList" : [],
         "commentTime" : ""
     }

@@ -1,4 +1,5 @@
 import { insertPostData } from '@/api/Post';
+import { GetUserIdx } from '@/atom/UserAtom';
 import { useState, useRef } from 'react';
 
 interface PostInsertProps {
@@ -6,6 +7,7 @@ interface PostInsertProps {
 }
 
 const PostInsert = (props: PostInsertProps) => {
+    const userIdx = GetUserIdx();
     const [selectVal, setSelectVal] = useState("1");
     const imageInput = useRef<HTMLInputElement>(null);
     const descInput = useRef<HTMLTextAreaElement>(null);
@@ -18,6 +20,7 @@ const PostInsert = (props: PostInsertProps) => {
         }
 
         const param = new FormData();
+        param.append("userIdx", String(userIdx));
         param.append("category", selectVal);
         param.append("uploadFile", imageInput.current?.files[0]);
         if(descInput.current!.value != "") param.append("description", descInput.current!.value);
@@ -27,7 +30,7 @@ const PostInsert = (props: PostInsertProps) => {
     }
 
     return (
-        <form className="col-12" encType="multipart/form-data" onSubmit={(e) => void formSubmit(e)}>
+        <form className="col-12 form_style_0_con" encType="multipart/form-data" onSubmit={(e) => void formSubmit(e)}>
             <div className="col-12 form_style_0">
                 <div className="col-12 col-md-0 label_box">
                     <span>카테고리</span>
@@ -55,12 +58,12 @@ const PostInsert = (props: PostInsertProps) => {
                     <span>상태메세지</span>
                 </div>
                 <div className="col-12 col-md-0 input_box">
-                    <textarea ref={descInput}></textarea>
+                    <textarea ref={descInput} className="textarea_style_0"></textarea>
                 </div>
             </div>
             <div className="col-12">
-                <button type="submit">등록</button>
-                <button type="button" onClick={() => props.closePopup(false)}>닫기</button>
+                <button type="submit" className="col-6 btn_style_0 bg_point0">등록</button>
+                <button type="button" className="col-6 btn_style_0" onClick={() => props.closePopup(false)}>닫기</button>
             </div>
         </form>
     )
