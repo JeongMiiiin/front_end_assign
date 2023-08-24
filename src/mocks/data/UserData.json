@@ -8,7 +8,7 @@
         "isAdmin" : false
     },
     {
-        "userIdx" : 2,
+        "userIdx" : 0,
         "userId": "admin",
         "password" : "admin1234",
         "userName" : "매니저1",
