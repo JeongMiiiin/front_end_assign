@@ -100,8 +100,11 @@ const PostView = (props : PostViewProps) => {
     }
 
     const deletePost = (postIdx: number) => {
-        void deletePostData(postIdx, ({data}) => console.log(data), (error) => console.log(error));
-        props.closePopup(false);
+        if(confirm("삭제하시겠습니까?")){
+            void deletePostData(postIdx, ({data}) => console.log(data), (error) => console.log(error));
+            alert("삭제했습니다.");
+            props.closePopup(false);
+        }
     }
 
     return (

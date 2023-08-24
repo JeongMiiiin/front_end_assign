@@ -17,20 +17,23 @@ const PostUpdate = (props: PostUpdateProps) => {
     //폼 submit 이벤트
     const formSubmit  = async (e: React.FormEvent<HTMLFormElement>):Promise<void> => {
         e.preventDefault();
-        if(imageInput.current?.files == null || imageInput.current?.files?.length == 0){
-            alert("변경할 이미지를 등록해주세요");
-            return;
+        if(confirm("변경하시겠습니까?")){
+            if(imageInput.current?.files == null || imageInput.current?.files?.length == 0){
+                alert("변경할 이미지를 등록해주세요");
+                return;
+            }
+    
+            const param = new FormData();
+            param.append("userIdx", String(userIdx));
+            param.append("category", selectVal);
+            param.append("uploadFile", imageInput.current?.files[0]);
+            param.append("description", description);
+            await updatePostData(props.item.postIdx, param, ({data}) => {
+                if(data) props.closePopup(false);
+            }, (error) => console.log(error));
+            alert("변경되었습니다");
+            props.closePopup(false);
         }
-
-        const param = new FormData();
-        param.append("userIdx", String(userIdx));
-        param.append("category", selectVal);
-        param.append("uploadFile", imageInput.current?.files[0]);
-        param.append("description", description);
-        await updatePostData(props.item.postIdx, param, ({data}) => {
-            if(data) props.closePopup(false);
-        }, (error) => console.log(error));
-        props.closePopup(false);
     }
 
     return (

@@ -14,19 +14,24 @@ const PostInsert = (props: PostInsertProps) => {
     //폼 submit 이벤트
     const formSubmit  = async (e: React.FormEvent<HTMLFormElement>):Promise<void> => {
         e.preventDefault();
-        if(imageInput.current?.files == null || imageInput.current?.files?.length == 0){
-            alert("업로드할 이미지를 등록해주세요");
-            return;
+        if(confirm("등록하시겠습니까?")){
+            if(imageInput.current?.files == null || imageInput.current?.files?.length == 0){
+                alert("업로드할 이미지를 등록해주세요");
+                return;
+            }
+    
+            const param = new FormData();
+            param.append("userIdx", String(userIdx));
+            param.append("category", selectVal);
+            param.append("uploadFile", imageInput.current?.files[0]);
+            if(descInput.current!.value != "") param.append("description", descInput.current!.value);
+            await insertPostData(param, ({data}) => {
+                if(data) {
+                    alert("등록되었습니다");
+                    props.closePopup(false);
+                }
+            }, (error) => console.log(error));
         }
-
-        const param = new FormData();
-        param.append("userIdx", String(userIdx));
-        param.append("category", selectVal);
-        param.append("uploadFile", imageInput.current?.files[0]);
-        if(descInput.current!.value != "") param.append("description", descInput.current!.value);
-        await insertPostData(param, ({data}) => {
-            if(data) props.closePopup(false);
-        }, (error) => console.log(error));
     }
 
     return (
