@@ -30,13 +30,41 @@
 - - 10. 운동 사진 상세 댓글 기능 적용
 
 - API설계
-- - 1. 로그인 -> method : POST, url : /api/user, param : {id : 입력한 id, password : 입력한 비밀번호}, success : 로그인에 성공한 유저 정보
-- - 2. 사진리스트 조회 -> method : GET, url : /api/post/list, param : {userIdx : 유저 idx, page : pagination 처리를 위한 변수, size : 가지고 올 게시물 수, category : 운동유형, upload : 업로드 최신/과거순, comment : 댓글시간 최신/과거순}, success : 해당하는 사진 리스트 데이터 제공
-- - 3. 사진 상세 조회 -> method : GET, url : /api/post/view, param : {userIdx : 유저 idx, targetDate : 타겟 날짜}, success : 해당하는 날짜 사진 리스트 및 가까운 과거, 미래 날짜 제공
-- - 4. 사진 업로드 -> method : POST, url : /api/post, param : {userIdx : 유저 idx, category : 선택한 운동유형, uploadFile : 올리는 사진}, success : 성공했는지 여부 전달
-- - 5. 사진 변경 -> method : PUT, url : /api/post/{postIdx}, param : {userIdx : 유저 idx, category : 선택한 운동유형, uploadFile : 올리는 사진}, success : 성공했는지 여부 전달
-- - 6. 사진 삭제 -> method : DELETE, url : /api/post/{postIdx}, param : null, success : 성공했는지 여부 전달
-- - 7. 댓글 등록 -> method : POST, url : /api/comment, param : {userIdx : 유저 idx, postIdx : 댓글달려는 사진 idx, description: 댓글 내용}, success : 성공했는지 여부 전달
+- - 1. 로그인
+      1-1. method : POST
+      1-2. url : /api/user
+      1-3. param : {id : 입력한 id, password : 입력한 비밀번호}
+      1-4. success : 로그인에 성공한 유저 정보
+- - 2. 사진리스트 조회
+      2-1. method : GET
+      2-2. url : /api/post/list
+      2-3. param : {userIdx : 유저 idx, page : pagination 처리를 위한 변수, size : 가지고 올 게시물 수, category : 운동유형, upload : 업로드 최신/과거순, comment : 댓글시간 최신/과거순}
+      2-4. success : 해당하는 사진 리스트 데이터 제공
+- - 3. 사진 상세 조회
+      3-1. method : GET
+      3-2. url : /api/post/view
+      3-3. param : {userIdx : 유저 idx, targetDate : 타겟 날짜}
+      3-4. success : 해당하는 날짜 사진 리스트 및 가까운 과거, 미래 날짜 제공
+- - 4. 사진 업로드
+      4-1. method : POST
+      4-2. url : /api/post
+      4-3. param : {userIdx : 유저 idx, category : 선택한 운동유형, uploadFile : 올리는 사진}
+      4-4. success : 성공했는지 여부 전달
+- - 5. 사진 변경
+      5-1. method : PUT
+      5-2. url : /api/post/{postIdx}
+      5-3. param : {userIdx : 유저 idx, category : 선택한 운동유형, uploadFile : 올리는 사진}
+      5-4. success : 성공했는지 여부 전달
+- - 6. 사진 삭제
+      6-1. method : DELETE
+      6-2. url : /api/post/{postIdx}
+      6-3. param : null
+      6-4. success : 성공했는지 여부 전달
+- - 7. 댓글 등록
+      7-1. method : POST
+      7-2. url : /api/comment
+      7-3. param : {userIdx : 유저 idx, postIdx : 댓글달려는 사진 idx, description: 댓글 내용}
+      7-4. success : 성공했는지 여부 전달
 
 # 개발 환경
 - FE : React + Typescript
