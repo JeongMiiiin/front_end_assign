@@ -30,7 +30,7 @@
 - - 10. 운동 사진 상세 댓글 기능 적용
 
 - API설계
-- - 1. 로그인
+- - 1. 로그인<br/>
       1-1. method : POST
       1-2. url : /api/user
       1-3. param : {id : 입력한 id, password : 입력한 비밀번호}
